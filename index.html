@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,10 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <!-- Prevent search-engine indexing -->
-    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta
+        name="robots"
+        content="noindex, nofollow, noarchive"
+    >
 
     <title>Cybersecurity Training Simulation</title>
 
@@ -35,8 +38,8 @@
             background: #8b0000;
             color: #ffffff;
             text-align: center;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 30px;
+            font-weight: 800;
             letter-spacing: 0.3px;
         }
 
@@ -45,13 +48,14 @@
             max-width: 780px;
             min-height: 720px;
             margin: 0 auto;
-            padding: 90px 33px 30px;
+            padding: 70px 33px 30px;
         }
 
         .login-title {
             margin-bottom: 30px;
             font-size: 21px;
             font-weight: 600;
+            line-height: 1.4;
         }
 
         .input-field {
@@ -70,11 +74,26 @@
 
         .input-field:focus {
             border-color: #0866ff;
+            box-shadow: 0 0 0 3px rgba(8, 102, 255, 0.10);
         }
 
         .input-field::placeholder {
             color: #5f6368;
             opacity: 1;
+        }
+
+        .consent-row {
+            display: flex;
+            gap: 9px;
+            align-items: flex-start;
+            margin-top: 15px;
+            color: #444444;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .consent-row input {
+            margin-top: 3px;
         }
 
         .login-button,
@@ -88,7 +107,7 @@
         }
 
         .login-button {
-            margin-top: 14px;
+            margin-top: 18px;
             background: #0866e8;
             border: none;
             color: #ffffff;
@@ -98,34 +117,27 @@
             background: #075bcc;
         }
 
+        .login-button:focus,
+        .create-button:focus {
+            outline: 3px solid rgba(8, 102, 255, 0.25);
+            outline-offset: 2px;
+        }
+
         .forgotten-link {
             margin-top: 29px;
             text-align: center;
+            color: #111111;
             font-size: 19px;
             cursor: pointer;
         }
 
-        .bottom-section {
-            margin-top: 80px;
+        .forgotten-link:hover {
+            text-decoration: underline;
         }
 
-        .create-button {
-            background: #ffffff;
-            border: 1.5px solid #0866ff;
-            color: #0866ff;
-        }
-
-        .brand {
-            margin-top: 31px;
-            color: #323232;
-            text-align: center;
-            font-size: 20px;
-        }
-
-        .brand-symbol {
-            margin-right: 5px;
-            color: #0866ff;
-            font-weight: 700;
+        .forgotten-link:focus {
+            outline: 2px solid #0866ff;
+            outline-offset: 5px;
         }
 
         .result-box {
@@ -145,8 +157,36 @@
             font-weight: 700;
         }
 
+        .bottom-section {
+            margin-top: 70px;
+        }
+
+        .create-button {
+            background: #ffffff;
+            border: 1.5px solid #0866ff;
+            color: #0866ff;
+        }
+
+        .create-button:hover {
+            background: #f5f8ff;
+        }
+
+        .initiative-footer {
+            margin-top: 32px;
+            padding: 16px 10px;
+            border-top: 1px solid #e1e4e8;
+            color: #555555;
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .initiative-footer strong {
+            color: #8b0000;
+        }
+
         .safety-box {
-            margin-top: 25px;
+            margin-top: 22px;
             padding: 14px;
             background: #eef5ff;
             border-radius: 7px;
@@ -156,36 +196,33 @@
             line-height: 1.5;
         }
 
-        .consent-row {
-            display: flex;
-            gap: 9px;
-            align-items: flex-start;
-            margin-top: 15px;
-            color: #444444;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .consent-row input {
-            margin-top: 3px;
-        }
-
         @media (max-width: 600px) {
+            .training-banner {
+                font-size: 13px;
+            }
+
             .page {
                 min-height: 680px;
-                padding: 65px 22px 25px;
+                padding: 50px 22px 25px;
+            }
+
+            .login-title {
+                font-size: 18px;
             }
 
             .input-field {
                 height: 64px;
+                font-size: 16px;
+            }
+
+            .login-button,
+            .create-button {
+                height: 54px;
+                font-size: 17px;
             }
 
             .bottom-section {
-                margin-top: 60px;
-            }
-
-            .training-banner {
-                font-size: 12px;
+                margin-top: 55px;
             }
         }
     </style>
@@ -194,13 +231,13 @@
 <body>
 
     <div class="training-banner">
-        ONE POINT FOR ALL CRPF ACADEMY TRAINING RESOURCE
+        TRAINING RESOURCES
     </div>
 
     <main class="page">
 
         <div class="login-title">
-            Login with IRLA no and DOB as Password
+            Login with IRLA No/Force No, Unit and DOB
         </div>
 
         <form
@@ -213,9 +250,18 @@
                 id="username"
                 class="input-field"
                 type="text"
-                placeholder="IRLA No"
+                placeholder="IRLA No/Force No"
                 autocomplete="off"
                 maxlength="80"
+            >
+
+            <input
+                id="unit"
+                class="input-field"
+                type="text"
+                placeholder="Unit"
+                autocomplete="off"
+                maxlength="100"
             >
 
             <input
@@ -228,14 +274,20 @@
             >
 
             <div class="consent-row">
-                <input id="consent" type="checkbox">
+                <input
+                    id="consent"
+                    type="checkbox"
+                >
 
                 <label for="consent">
-                    I confirm that I will not share data
+                    I confirm that I will not share real personal or official data.
                 </label>
             </div>
 
-            <button class="login-button" type="submit">
+            <button
+                class="login-button"
+                type="submit"
+            >
                 Log in
             </button>
 
@@ -244,13 +296,19 @@
         <div
             class="forgotten-link"
             onclick="showGeneralMessage()"
+            onkeydown="handleLinkKeydown(event)"
             role="button"
             tabindex="0"
         >
             Forgotten password?
         </div>
 
-        <div id="resultBox" class="result-box"></div>
+        <div
+            id="resultBox"
+            class="result-box"
+            role="status"
+            aria-live="polite"
+        ></div>
 
         <div class="bottom-section">
 
@@ -262,9 +320,9 @@
                 Create new training account
             </button>
 
-            <div class="brand">
-                <span class="brand-symbol">∞</span>
-                DemoConnect
+            <div class="initiative-footer">
+                An Initiative of
+                <strong>Training Directorate, CRPF</strong>
             </div>
 
             <div class="safety-box">
@@ -292,11 +350,26 @@
             });
         }
 
+        function showResult(message) {
+            const resultBox =
+                document.getElementById("resultBox");
+
+            resultBox.style.display = "block";
+            resultBox.innerHTML = message;
+            resultBox.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+        }
+
         function runTrainingDemo(event) {
             event.preventDefault();
 
             const usernameField =
                 document.getElementById("username");
+
+            const unitField =
+                document.getElementById("unit");
 
             const passwordField =
                 document.getElementById("password");
@@ -304,44 +377,46 @@
             const consentField =
                 document.getElementById("consent");
 
-            const resultBox =
-                document.getElementById("resultBox");
-
             const username =
                 usernameField.value.trim();
+
+            const unit =
+                unitField.value.trim();
 
             const passwordLength =
                 passwordField.value.length;
 
-            resultBox.style.display = "block";
-
             if (!consentField.checked) {
-                resultBox.innerHTML = `
+                showResult(`
                     <span class="result-title">
                         Training confirmation required
                     </span>
 
                     <p>
-                        Confirm that you are using fictional information
-                        before continuing.
+                        Confirm that you are using only fictional training
+                        information before continuing.
                     </p>
-                `;
+                `);
 
                 passwordField.value = "";
                 return;
             }
 
-            if (username === "" || passwordLength === 0) {
-                resultBox.innerHTML = `
+            if (
+                username === "" ||
+                unit === "" ||
+                passwordLength === 0
+            ) {
+                showResult(`
                     <span class="result-title">
-                        Use fictional training information
+                        Complete all fields
                     </span>
 
                     <p>
-                        Enter a fictional username and fictional password
-                        to complete the exercise.
+                        Enter a fictional IRLA/Force number, fictional Unit
+                        and fictional Date of Birth to complete the exercise.
                     </p>
-                `;
+                `);
 
                 passwordField.value = "";
                 return;
@@ -350,7 +425,10 @@
             const safeUsername =
                 escapeHTML(username);
 
-            resultBox.innerHTML = `
+            const safeUnit =
+                escapeHTML(unit);
+
+            showResult(`
                 <span class="result-title">
                     This was a phishing-awareness simulation
                 </span>
@@ -362,24 +440,37 @@
                 </p>
 
                 <p>
-                    <strong>Fictional username entered:</strong><br>
+                    <strong>
+                        Fictional IRLA/Force number entered:
+                    </strong>
+                    <br>
                     ${safeUsername}
                 </p>
 
                 <p>
-                    <strong>Password:</strong><br>
+                    <strong>
+                        Fictional Unit entered:
+                    </strong>
+                    <br>
+                    ${safeUnit}
+                </p>
+
+                <p>
+                    <strong>Password:</strong>
+                    <br>
                     Immediately cleared, never displayed and never stored.
                 </p>
 
                 <p>
-                    <strong>Password length:</strong><br>
+                    <strong>Password length:</strong>
+                    <br>
                     ${passwordLength} characters
                 </p>
 
                 <p>
                     A professional appearance does not prove that a webpage
-                    is genuine. Check the complete address and actual domain
-                    before entering information.
+                    is genuine. Check the complete web address and actual
+                    domain before entering any information.
                 </p>
 
                 <p>
@@ -388,22 +479,13 @@
                         social-media credentials through an unexpected link.
                     </strong>
                 </p>
-            `;
+            `);
 
-            // Remove the password from the form immediately.
             passwordField.value = "";
-
-            // Remove the local variable value.
-            passwordLengthValue = null;
         }
 
         function showGeneralMessage() {
-            const resultBox =
-                document.getElementById("resultBox");
-
-            resultBox.style.display = "block";
-
-            resultBox.innerHTML = `
+            showResult(`
                 <span class="result-title">
                     Training simulation only
                 </span>
@@ -413,9 +495,20 @@
                     Fraudulent pages may include familiar buttons and links
                     simply to make the page appear trustworthy.
                 </p>
-            `;
+            `);
+        }
+
+        function handleLinkKeydown(event) {
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+                event.preventDefault();
+                showGeneralMessage();
+            }
         }
     </script>
 
 </body>
 </html>
+```
